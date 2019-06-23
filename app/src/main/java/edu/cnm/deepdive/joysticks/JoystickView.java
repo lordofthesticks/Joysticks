@@ -59,7 +59,7 @@ public class JoystickView extends SurfaceView implements SurfaceHolder.Callback,
     if(getHolder().getSurface().isValid()){
       Canvas myCanvas = this.getHolder().lockCanvas(); //Stuff to draw
       Paint colors = new Paint();
-      myCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR); // Clear the BG
+      myCanvas.drawColor(Color.YELLOW, PorterDuff.Mode.CLEAR); // Clear the BG
 
       //First determine the sin and cos of the angle that the touched point is at relative to the center of the joystick
       float hypotenuse = (float) Math.sqrt(Math.pow(newX - centerX, 2) + Math.pow(newY - centerY, 2));
@@ -89,7 +89,7 @@ public class JoystickView extends SurfaceView implements SurfaceHolder.Callback,
 
   @Override
   public void surfaceCreated(SurfaceHolder surfaceHolder) {
-    setupDimensions();;
+    setupDimensions();
     drawJoystick(centerX, centerY);
   }
 
