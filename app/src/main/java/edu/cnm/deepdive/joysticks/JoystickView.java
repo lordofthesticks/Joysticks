@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -59,7 +61,11 @@ public class JoystickView extends SurfaceView implements SurfaceHolder.Callback,
     if(getHolder().getSurface().isValid()){
       Canvas myCanvas = this.getHolder().lockCanvas(); //Stuff to draw
       Paint colors = new Paint();
-      myCanvas.drawColor(Color.YELLOW, PorterDuff.Mode.CLEAR); // Clear the BG
+//      setLayerType(LAYER_TYPE_SOFTWARE, null); this clears the entire image....
+//      myCanvas.drawARGB(0,0,0,0); // Clear the BG
+      myCanvas.drawColor(Color.TRANSPARENT, Mode.CLEAR);
+
+
 
       //First determine the sin and cos of the angle that the touched point is at relative to the center of the joystick
       float hypotenuse = (float) Math.sqrt(Math.pow(newX - centerX, 2) + Math.pow(newY - centerY, 2));
